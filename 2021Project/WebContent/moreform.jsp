@@ -3,15 +3,35 @@
 <html lang="fr">
 
 <head>
-  <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+    <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="com.javatpoint.dao.UserDao,com.javatpoint.bean.*,java.util.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>AppTest</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
+<%
+	String title="";
+	String author="";
+	String comments="";
+%>
+<%  
+String personid=request.getParameter("personid");
 
+User u=UserDao.getRecordById(Integer.parseInt(personid));
+
+if(personid!=null){
+	
+	
+
+	title = u.getTitle();
+	author = u.getAuthor();
+	comments = u.getComments();
+	
+}
+  
+%> 
   <div class="container">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -35,23 +55,23 @@
   <div class="form-horizontal">
 
     <div class="form-group row">
-  <label class="col-form-label col-sm-2" for="Title">Title</label>
+  <label class="col-form-label col-sm-2" for="title">Title</label>
   <div class="col-sm-8">
-    <input readonly class="form-control" id="Title" value="Discrete Mathematics" />
+    <input readonly class="form-control" id="title" value="<%=u.getTitle()%>"> 
   </div>
 </div>
 
 <div class="form-group row">
-  <label class="col-form-label col-sm-2" for="Author">Author</label>
+  <label class="col-form-label col-sm-2" for="author">Author</label>
   <div class="col-sm-7">
-    <input readonly class="form-control" id="Author" value="Evan S. Connell" />
+    <input readonly class="form-control" id="Author" value="<%=u.getAuthor()%>" />
   </div>
 </div>
 
 <div class="form-group row">
-  <label class="col-form-label col-sm-2" for="Comments">Comments</label>
+  <label class="col-form-label col-sm-2" for="comments">Comments</label>
   <div class="col-sm-10">
-    <textarea readonly class="form-control" cols="20" id="Comments" maxlength="32000" rows="7">이산수학 교재이다. 매우 두껍다. 영어로 쓰여져있</textarea>
+    <textarea readonly class="form-control" cols="20" id="Comments" maxlength="32000" rows="7"><%=u.getComments()%></textarea>
   </div>
 </div>
 
@@ -66,7 +86,7 @@
     <div class="form-group row">
       <label class="col-form-label col-sm-2"></label>
       <div class="col-sm-10">
-        <a href="/books" class="btn btn-outline-dark cancel">Back</a>
+        <a href="list.jsp" class="btn btn-outline-dark cancel">Back</a>
       </div>
     </div>
   </div>

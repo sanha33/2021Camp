@@ -39,8 +39,8 @@
     <div class="col-sm-10">
     <input type="file" class="form-control" name="filename" /><br/>
    
-        <input type="submit" value="전송" class="btn btn-outline-dark cancel" />  
-        <input type="reset" value="취소" class="btn btn-outline-dark cancel" />
+        <input type="submit" value="upload" class="btn btn-outline-dark cancel" />  
+        
     </div>
 </div>
 

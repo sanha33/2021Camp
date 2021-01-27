@@ -66,7 +66,6 @@
 		multpartRequest = new MultipartRequest(request, realPath, 
 				sizeLimit, "utf-8",new DefaultFileRenamePolicy());
 	
-	
 		name = multpartRequest.getParameter("name");
 		// form내의 <input name="title" 인 것의 value 값을 가져옴
 		

@@ -53,20 +53,21 @@
       <textarea class="form-control" name="comments" rows="7" cols="20" ></textarea>
     </div>
 </div>
-
+ 
     <div class="form-group row">
-        <label class="col-form-label col-sm-2" for="UploadFile">File Upload</label>
+        <label class="col-form-label col-sm-2" for="filename">File Upload</label>
         <div class="col-sm-7">
-          <input type="file" class="form-control" name=UploadFile value="">
+          <input type="file" class="form-control" name="filename" >
         </div>
     </div>
-
 
     <div class="form-group row">
       <label class="col-form-label col-sm-2"></label>
       <div class="col-sm-10">
         <input type="submit" value="Save" class="btn btn-default btn-success">
         <a href="list.jsp" class="btn btn-outline-dark cancel">Cancel</a>
+        
+     
       </div>
     </div>
   </div>

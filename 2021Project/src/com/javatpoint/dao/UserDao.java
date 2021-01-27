@@ -26,31 +26,39 @@ public static int save(User u){
     try{  
         Connection con=getConnection();  
         PreparedStatement ps=con.prepareStatement(  
-"insert into ListTable(title,author,comments) values(?,?,?)");  
+"insert into ListTable(title,author,comments,filename) values(?,?,?,?)");  
         ps.setString(1,u.getTitle());  
         ps.setString(2,u.getAuthor());  
         ps.setString(3,u.getComments());  
-     
+        ps.setString(4,u.getFilename());
+        
         status=ps.executeUpdate();  
     }catch(Exception e){System.out.println(e);}  
     return status;  
 }  
+
+
+
 
 public static int update(User u){  
     int status=0;  
     try{  
         Connection con=getConnection();  
         PreparedStatement ps=con.prepareStatement(  
-"update ListTable set title=?,author=?,comments=? where id=?");  
+"update ListTable set title=?,author=?,comments=?,filename=? where id=?");  
         ps.setString(1,u.getTitle());  
         ps.setString(2,u.getAuthor());  
-        ps.setString(3,u.getComments());  
+        ps.setString(3,u.getComments());   
+        ps.setString(4,u.getFilename());  
     
-        ps.setInt(4,u.getId());  
+        ps.setInt(5,u.getId());  
         status=ps.executeUpdate();  
     }catch(Exception e){System.out.println(e);}  
     return status;  
 }  
+
+
+
 
 public static int delete(User u){  
     int status=0;  
@@ -91,6 +99,7 @@ public static List<User> getAllRecords(){
             u.setTitle(rs.getString("title"));  
             u.setAuthor(rs.getString("author"));  
             u.setComments(rs.getString("comments"));  
+            u.setFilename(rs.getString("filename"));
           
             list.add(u);  
         }  
@@ -111,6 +120,7 @@ public static User getRecordById(int id){
             u.setTitle(rs.getString("title"));  
             u.setAuthor(rs.getString("author"));  
             u.setComments(rs.getString("comments"));  
+            u.setFilename(rs.getString("filename"));  
   
         }  
     }catch(Exception e){System.out.println(e);}  

@@ -8,19 +8,10 @@
   
   <body>
   
-<%  
-int i=UserDao.save(u);  
+
+<a class="btn btn-sm btn-warning" href="fileform.jsp?personid=${u.getId()}">FileUpload</a>
 
 
 
-if(i>0){
-	
-	response.sendRedirect("list.jsp");  	
-}else{
-	response.sendRedirect("add_error.jsp");
-}
-
-
-%>  
 
 </body>

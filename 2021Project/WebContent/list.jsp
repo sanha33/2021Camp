@@ -55,11 +55,13 @@ request.setAttribute("list",list);
 		<td>${u.getTitle()}</td>
 		<td>${u.getAuthor()}</td>  
 		<td>${u.getComments()}</td>
+		<td><img src="${u.getFilename()}"></td>
+		<td>${u.getFilename()}</td>
 
           <td class="d-print-none">
             <a class="btn btn-sm btn-warning" href="editform.jsp?personid=${u.getId()}">Edit</a>
             <a class="btn btn-sm btn-danger" href="deleteform.jsp?personid=${u.getId()}">Delete</a>
-            <a class="btn btn-sm" href="moreform.jsp">More</a>
+            <a class="btn btn-sm" href="moreform.jsp?personid=${u.getId()}">More</a>
           </td>
           </tr>
 </c:forEach>  
