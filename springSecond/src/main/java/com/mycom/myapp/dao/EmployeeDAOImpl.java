@@ -1,0 +1,30 @@
+package com.mycom.myapp.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.stereotype.Repository;
+
+import com.mycom.myapp.model.EmployeeVO;
+
+@Repository
+public class EmployeeDAOImpl implements EmployeeDAO {
+ 
+    public List<EmployeeVO> getAllEmployees() 
+    {
+        List<EmployeeVO> employees = new ArrayList<EmployeeVO>();
+         
+        EmployeeVO vo1 = new EmployeeVO();
+        vo1.setId(1);
+        vo1.setFirstName("sanha");
+        vo1.setLastName("Lee");
+        employees.add(vo1);
+         
+        EmployeeVO vo2 = new EmployeeVO();
+        vo2.setId(2);
+        vo2.setFirstName("sana");
+        vo2.setLastName("doing");
+        employees.add(vo2);
+         
+        return employees;
+    }
+}
